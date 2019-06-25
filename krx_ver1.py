@@ -8,7 +8,7 @@ import pandas as pd
 import os
 
 
-driver = webdriver.Chrome('/Users/kwon9s/Desktop/workspace/Chrome/chromedriver')
+driver = webdriver.Chrome('/Users/../Chrome/chromedriver')
 driver.get('http://short.krx.co.kr/contents/SRT/02/02010100/SRT02010100.jsp')
 
 dataLists = []
@@ -40,7 +40,7 @@ for years in range(18,18):
     actions.click(elem).perform()
 
     sleep(3)
-    data = pd.read_excel('/Users/kwon9s/Downloads/data.xls')
+    data = pd.read_excel('/Users/../Downloads/data.xls')
 
 
     for idx in range(len(data)) : 
@@ -52,7 +52,7 @@ for years in range(18,18):
         data_pric.append(data['공매도거래대금'][len(data)-idx-1])
         data_intp.append(data['공매도잔고금액'][len(data)-idx-1])
 
-    os.remove('/Users/kwon9s/Downloads/data.xls')
+    os.remove('/Users/../Downloads/data.xls')
 
 df = pd.DataFrame({'일자':data_date,
                    '종목코드':data_code,
